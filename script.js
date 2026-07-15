@@ -41,9 +41,9 @@ const CONFIG = {
   // Put your image files in the /photos folder named photo1.jpg, photo2.jpg ...
   // To use placeholders only, leave 'file' as "" (empty).
   photos: [
-    { file: "photo1.jpg", caption: "dinner nights out 🍽️" },
-    { file: "photo2.jpg", caption: "our kind of chaos 😄" },
-    { file: "photo3.jpg", caption: "flowers suit you 🌷" },
+    { file: "photo3.jpeg", caption: "dinner nights out 🍽️" },
+    { file: "photo1.jpeg", caption: "our kind of chaos 😄" },
+    { file: "photo2.jpeg", caption: "flowers suit you 🌷" },
   ],
 
   // --- Birthday wish chips ---
