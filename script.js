@@ -1,77 +1,76 @@
 /* =====================================================
-   💖  EDIT EVERYTHING IN THIS CONFIG BLOCK  💖
+   🎂  EDIT EVERYTHING IN THIS CONFIG BLOCK  🎂
    This is the ONLY part you need to change to make it
    personal. Keep the quotes "" around text.
    ===================================================== */
 const CONFIG = {
   // --- Names ---
-  herName: "Mahi",          // 👈 put HER name here
-  yourName: "Dev",          // 👈 put YOUR name here
-  petName: "Ice-cream Paglu",       // a sweet nickname (used here and there)
-
-  // --- Her exam date & time (for the countdown) ---
-  // Format: "YYYY-MM-DDTHH:MM"  (24-hour clock, her local time)
-  examDate: "2026-07-15T09:00",
-  examCaption: "until your first exam",  // shown under the countdown
+  herName: "Daisy",         // 👈 the birthday girl
+  yourName: "Dev",          // 👈 who it's from
+  petName: "Sunshine",      // a cute nickname (used here and there)
 
   // --- The typed lines in the hero (they cycle) ---
   typedLines: [
-    "the prettiest smile I've ever seen…",
-    "my favourite hello and hardest goodbye…",
-    "the calm in every storm…",
-    "the best thing that ever happened to me…",
+    "the friend everyone wishes they had…",
+    "flowers, coffee, and the biggest heart…",
+    "chaotic, hilarious, and impossible not to love…",
+    "officially another year more iconic…",
   ],
 
-  // --- Reasons I love you (tap-to-flip cards) ---
+  // --- Why Daisy is the best (tap-to-flip cards) ---
   reasons: [
-    { emoji: "🌸", text: "The way your eyes light up when you laugh." },
-    { emoji: "💫", text: "How you make ordinary days feel like magic." },
-    { emoji: "🧠", text: "Your brilliant, beautiful mind." },
-    { emoji: "🤍", text: "How safe and at home you make me feel." },
-    { emoji: "☀️", text: "You're the first thing I think of every morning." },
-    { emoji: "🌹", text: "Simply because you're you — and that's enough." },
+    { emoji: "🌸", text: "You light up every room like a field of daisies in the sun." },
+    { emoji: "☕", text: "Nobody does a coffee-and-catch-up better than you." },
+    { emoji: "🍜", text: "The best food adventures always start with 'Daisy, look at this place.'" },
+    { emoji: "🧸", text: "You find the cutest little things and make them everyone's favourite." },
+    { emoji: "😂", text: "You turn the most ordinary days into stories we tell for years." },
+    { emoji: "💛", text: "You show up, every time — the truest friend a person could ask for." },
   ],
 
-  // --- The love letter ---
+  // --- The birthday note ---
   letterBody:
-    "From the moment you came into my life, everything changed for the better. " +
-    "You're not just beautiful on the outside — though you truly are the prettiest girl I've ever seen — " +
-    "you're kind, strong, and impossibly easy to love.\n\n" +
-    "I made this little corner of the internet just to remind you: you are adored, " +
-    "you are believed in, and you are never, ever alone. I'm so proud of you, today and always.",
+    "Happy birthday, Daisy! 🎉 I couldn't let today go by without making you something " +
+    "as one-of-a-kind as you are. From coffee runs to food crawls to hunting down the cutest " +
+    "little things nobody else would notice — every day is better with you in it.\n\n" +
+    "You're kind, you're ridiculous (the best way), and you have a heart the size of the sky. " +
+    "So here's to you today: I hope this year brings you all the flowers, all the good coffee, " +
+    "all the incredible food, and every bit of the happiness you're always handing out to everyone else. " +
+    "You deserve the whole world. Thanks for being my person. 🌼",
 
   // --- Photo captions (match the order of your photos) ---
   // Put your image files in the /photos folder named photo1.jpg, photo2.jpg ...
   // To use placeholders only, leave 'file' as "" (empty).
   photos: [
-    { file: "photo3.jpg", caption: "the night selfie" },
-    { file: "photo1.jpg", caption: "my favourite" },
-    { file: "photo2.jpg", caption: "this smile 🥹" },
+    { file: "photo1.jpg", caption: "dinner nights out 🍽️" },
+    { file: "photo2.jpg", caption: "our kind of chaos 😄" },
+    { file: "photo3.jpg", caption: "flowers suit you 🌷" },
   ],
 
-  // --- Good-luck affirmation chips ---
+  // --- Birthday wish chips ---
   affirmations: [
-    "You are so prepared 📚",
-    "Breathe — you've got this",
-    "Smartest girl I know",
-    "Trust yourself",
-    "I'm so proud of you",
-    "Go shine ✨",
+    "Happy Birthday! 🎂",
+    "All the flowers 🌸",
+    "Endless good coffee ☕",
+    "The best food 🍰",
+    "So many cute little things 🧸",
+    "Best friend ever 💛",
+    "Have the best day 🎉",
   ],
 
-  // --- Dreams / future cards ---
+  // --- Our someday list (friend bucket-list cards) ---
   dreams: [
-    { emoji: "✈️", text: "Travel the world with you, one city at a time." },
-    { emoji: "🏡", text: "A cozy little home that's filled with our laughter." },
-    { emoji: "🎉", text: "Celebrating every one of your big wins — starting with these exams." },
-    { emoji: "🌷", text: "Growing old together, still this in love." },
+    { emoji: "☕", text: "Try every cute café in the city — one cappuccino at a time." },
+    { emoji: "🍜", text: "Eat our way through that endless 'we should go here' list." },
+    { emoji: "🌻", text: "A whole day at a flower market, just because." },
+    { emoji: "✈️", text: "A trip together where the only plan is fun." },
   ],
 
   // --- The secret message (in the 💌 button, bottom-right) ---
   secretMessage:
-    "If you're reading this, I just want you to know:\n\n" +
-    "you are the best part of my every single day. " +
-    "Good luck in your exams, my love — go be brilliant. I'll be right here, cheering the loudest. 💕",
+    "Okay, real talk 💛\n\n" +
+    "You're one of the best people I know, and getting to be your friend is a genuine gift. " +
+    "I hope this birthday is full of flowers, coffee, amazing food, and every cute little thing " +
+    "that makes you smile. Have the best day, Daisy — you've earned it. 🎉",
 
   // --- Background music (OPTIONAL) ---
   // Put an mp3 in a /music folder and write its name below, e.g. "song.mp3".
@@ -111,7 +110,7 @@ const make = (tag, cls, html) => {
 // ---- Background: falling petals ----
 (function buildPetals() {
   const wrap = $("#petals");
-  const glyphs = ["🌸", "🌹", "💗", "❀", "✿"];
+  const glyphs = ["🌸", "🌼", "☕", "🎂", "🧸", "🌷", "✿"];
   const n = window.innerWidth < 600 ? 12 : 20;
   for (let i = 0; i < n; i++) {
     const p = make("span", "petal", glyphs[i % glyphs.length]);
@@ -126,17 +125,15 @@ const make = (tag, cls, html) => {
 
 // ---- Fill in names everywhere (safe — skips elements that were removed/commented out) ----
 function setText(sel, val) { const el = $(sel); if (el) el.textContent = val; }
-setText("#gateName", CONFIG.herName || "My Love");
+setText("#gateName", CONFIG.herName || "Birthday Girl");
 setText("#heroFor", "For " + (CONFIG.herName || "you"));
-setText("#letterTo", "My dearest " + (CONFIG.herName || "love") + ",");
+setText("#letterTo", "Dear " + (CONFIG.herName || "friend") + ",");
 setText("#letterBody", CONFIG.letterBody);
 setText("#letterFrom", CONFIG.yourName || "Me");
-setText("#luckName", CONFIG.herName || "love");
-setText("#cdCaption", CONFIG.examCaption);
 setText("#modalBody", CONFIG.secretMessage);
-setText("#closingName", "you'll always have me, " + (CONFIG.herName || "love") + ".");
-setText("#madeBy", "Made with 💖 by " + (CONFIG.yourName || "me") + " · for " + (CONFIG.herName || "you"));
-document.title = "For " + (CONFIG.herName || "You") + " 💖";
+setText("#closingName", "have the happiest birthday, " + (CONFIG.herName || "friend") + ".");
+setText("#madeBy", "Made with 💛 by " + (CONFIG.yourName || "me") + " · for " + (CONFIG.herName || "you"));
+document.title = "Happy Birthday, " + (CONFIG.herName || "You") + " 🎉";
 
 // ---- Build reason cards ----
 (function buildReasons() {
@@ -252,7 +249,7 @@ document.title = "For " + (CONFIG.herName || "You") + " 💖";
 
 // ---- Heart burst effect ----
 function heartBurst(x, y, count) {
-  const glyphs = ["💖", "💕", "💗", "🌸", "❤️"];
+  const glyphs = ["🎉", "🎂", "🌸", "🌼", "☕", "🎈", "💛"];
   for (let i = 0; i < (count || 14); i++) {
     const h = make("span", "burst", glyphs[Math.floor(Math.random() * glyphs.length)]);
     const ang = Math.random() * Math.PI * 2;
