@@ -30,8 +30,26 @@ There are **18 empty photo slots** and **5 video slots** already waiting in
 `content.js`. Fill the ones you want, delete the lines you don't. Each folder
 has its own README with the details.
 
-**A missing file never breaks the page.** It shows a soft "photo" placeholder
-instead, so nothing ever looks broken to her.
+**A missing file never breaks the page.** A waiting photo shows a dashed pink
+"photo" placeholder; a waiting **video** shows a dark "video" placeholder with
+a play mark, so you can always see which is which and where they'll land.
+Chapter 5 ("you, moving") is the film strip — drop `01.mp4`, `02.mp4`,
+`03.mp4` in and they appear there.
+
+### Each chapter has its own layout
+
+Add `layout:` to any chapter to change how its media is arranged:
+
+| `layout` | Looks like |
+|---|---|
+| `stack` | a leaning pile, staggered left and right |
+| `duo` | one large, one smaller tucked below it |
+| `scatter` | loose and uneven, pinned at angles |
+| `solo` | a single large frame, nothing competing |
+| `strip` | a swipeable film strip — best for videos |
+| `mosaic` | a dense wall of small squares |
+
+Leave it out for a plain even grid.
 
 ### Before you push, check the weight
 

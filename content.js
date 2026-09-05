@@ -66,6 +66,20 @@ window.CONTENT = {
        { video: "01.mp4", cap: "caption" }   ← from the /videos folder
        { photo: "", cap: "caption" }         ← leaves a blank slot for later
 
+     VIDEOS: chapter 5 ("you, moving") already has 3 video slots waiting,
+     and chapter 6 has 2 more. Drop 01.mp4 … 05.mp4 into /videos and they
+     appear. Until then they show a dashed "video" placeholder so you can
+     see exactly where they will land.
+
+     layout  — how that chapter arranges its media. One of:
+       "stack"    a leaning pile, the first photo on top
+       "duo"      one large, one small tucked beside it
+       "scatter"  loose, uneven, pinned at angles
+       "solo"     a single large frame, nothing else competing
+       "strip"    a horizontal film strip you swipe (best for videos)
+       "mosaic"   a dense wall of small squares
+     Leave it out and you get a plain even grid.
+
      Chapters also accept an optional  deco: "coffee" | "flower" | "clip"
      which tapes a little something extra onto the page.
   */
@@ -74,6 +88,7 @@ window.CONTENT = {
     {
       stamp: "04 · 08 · 2026",
       title: "the day you replied",
+      layout: "stack",
       body:
         "One month ago you answered a message, and I genuinely do not think " +
         "either of us understood what we had just started.\n\n" +
@@ -90,6 +105,7 @@ window.CONTENT = {
     {
       stamp: "the sound of you",
       title: "you speak tooooo muchhh",
+      layout: "duo",
       body:
         "You do. You talk until there is no air left in the room, and you " +
         "type like this —",
@@ -106,6 +122,7 @@ window.CONTENT = {
     {
       stamp: "22 · 08 · 2026",
       title: "nothing before coffee",
+      layout: "scatter",
       body:
         "Near Tulsidham circle. You had something iced, because you always do " +
         "when we are out.\n\n" +
@@ -124,6 +141,7 @@ window.CONTENT = {
     {
       stamp: "24 · 08 · 2026",
       title: "the fourth floor",
+      layout: "solo",
       body:
         "No lights. No people. Nothing up there was even finished yet.\n\n" +
         "We talked for a while, and then we stopped talking.\n\n" +
@@ -138,6 +156,7 @@ window.CONTENT = {
     {
       stamp: "on repeat",
       title: "you, moving",
+      layout: "strip",
       body:
         "Photographs have never really worked on you. You do not hold still " +
         "long enough.\n\n" +
@@ -155,6 +174,7 @@ window.CONTENT = {
     {
       stamp: "everything in between",
       title: "the small ones",
+      layout: "mosaic",
       body:
         "Not every good thing gets a date written on it. Most of it is just " +
         "this — ordinary afternoons that I have somehow kept all of.",
@@ -227,6 +247,11 @@ window.CONTENT = {
     // Shown instead if she declines the camera, or it is not available.
     fallback: "That is completely alright.\nI already know what you look like.\nI think about it constantly.",
     privacy: "Nothing is uploaded, saved or sent. This stays on your phone.",
+
+    // The shutter, once the mirror is live.
+    shutter:  "take the picture",
+    retake:   "again",
+    taken:    "keep this one.",
   },
 
   /* ── 7. THE ASK ────────────────────────────────────────────────── */
@@ -254,8 +279,21 @@ window.CONTENT = {
     line:    "I was never actually worried.",
     sub:     "iced coffee. you pick the day. I will handle the rest.",
     polaroidCap: "the second you said yes",
-    save:    "save this photo",
-    tell:    "tell him 💌",
+    save:    "save to my phone",
+    share:   "save / send",
+    tell:    "tell him",
+
+    // Hint shown under the keepsake if her browser cannot download directly
+    // (iPhones especially) — long-pressing the image always works.
+    saveHint: "press and hold the picture to save it",
+
+    // The words printed onto the keepsake image she saves.
+    card: {
+      kicker:  "05 · 09 · 2026",
+      line:    "she said yes",
+      caption: "nothing before coffee",
+      sign:    "— Dev",
+    },
   },
 
   /* ── 9. THE CLOSING ────────────────────────────────────────────── */

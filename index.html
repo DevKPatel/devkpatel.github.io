@@ -124,6 +124,17 @@
 
       <div class="mirror__flash" id="mirrorFlash" aria-hidden="true"></div>
     </div>
+
+    <!-- the shutter, once the camera is live -->
+    <div class="shutterbar" id="shutterBar" hidden>
+      <button class="shutter" id="btnShutter" type="button" aria-label="Take the picture">
+        <span class="shutter__ring" aria-hidden="true"></span>
+        <span class="shutter__dot" aria-hidden="true"></span>
+      </button>
+      <p class="shutterbar__label hand" id="shutterLabel"></p>
+      <button class="linkish" id="btnRetake" type="button" hidden></button>
+    </div>
+
     <p class="mirror__caption hand" id="mirrorCaption"></p>
   </section>
 
@@ -144,14 +155,20 @@
     <p class="yes__line hand" id="yesLine"></p>
     <p class="yes__sub" id="yesSub"></p>
 
-    <figure class="polaroid polaroid--hero" id="yesPolaroid" hidden>
-      <div class="polaroid__frame"><img id="yesPhoto" alt="you, the second you said yes"></div>
-      <figcaption class="polaroid__cap hand" id="yesPhotoCap"></figcaption>
+    <!-- the keepsake: her photo composed onto a card she can keep -->
+    <figure class="keepsake" id="keepsake" hidden>
+      <img id="keepsakeImg" alt="A keepsake card: your photo, the date, and the question">
+      <figcaption class="keepsake__hint" id="keepsakeHint"></figcaption>
     </figure>
+    <canvas id="cardCanvas" hidden></canvas>
 
     <div class="yes__actions">
-      <a class="btn btn--ghost" id="btnSave" download="us.jpg" hidden></a>
-      <a class="btn btn--yes" id="btnTell" target="_blank" rel="noopener"></a>
+      <button class="btn btn--yes" id="btnShare" type="button" hidden></button>
+      <a class="btn btn--ghost" id="btnSave" download hidden></a>
+      <a class="btn btn--yes" id="btnTell" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><path d="m3.6 6.2 8.4 6 8.4-6"/></svg>
+        <span id="btnTellText"></span>
+      </a>
     </div>
   </section>
 
@@ -164,13 +181,22 @@
 </main>
 
 
+<!-- ══ how far through the box she is ══ -->
+<div class="thread" id="thread" aria-hidden="true"><span class="thread__run" id="threadRun"></span></div>
+
 <!-- ══ floating bits ══ -->
 <button class="music" id="music" type="button" aria-label="Toggle music" hidden>
   <span class="music__bars" aria-hidden="true"><i></i><i></i><i></i></span>
 </button>
 <audio id="audio" loop preload="none"></audio>
 
-<button class="flower" id="flower" type="button" aria-label="A secret" hidden>❀</button>
+<button class="flower" id="flower" type="button" aria-label="A secret" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="6.4" r="3.4"/><circle cx="17.6" cy="12" r="3.4"/>
+    <circle cx="12" cy="17.6" r="3.4"/><circle cx="6.4" cy="12" r="3.4"/>
+    <circle cx="12" cy="12" r="2.1" class="flower__eye"/>
+  </svg>
+</button>
 
 <!-- secret note -->
 <div class="sheet" id="secret" aria-hidden="true">
