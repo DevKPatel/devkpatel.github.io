@@ -80,9 +80,9 @@ window.CONTENT = {
         "I have counted every day since. All thirty-one of them.",
       deco: "clip",
       media: [
-        { photo: "photo1.jpg", cap: "somewhere near the beginning" },
-        { photo: "photo3.jpg", cap: "this face. every time." },
-        { photo: "photo2.jpg", cap: "you, being you" },
+        { photo: "photo1.jpeg", cap: "somewhere near the beginning" },
+        { photo: "photo3.jpeg", cap: "us, early on" },
+        { photo: "photo2.jpeg", cap: "you, being you" },
         { photo: "",           cap: "add one more here" },
       ],
     },

@@ -11,9 +11,13 @@
 
 import { readdirSync, statSync, renameSync, existsSync, mkdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { join, extname, basename } from "node:path";
+import { join, extname, basename, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = new URL("..", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
+// fileURLToPath, not URL.pathname — the latter stays percent-encoded, so a
+// project folder with a space in it ("Claude Code") silently resolves to
+// nothing and every media folder gets skipped.
+const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const FIX = process.argv.includes("--fix");
 
 const LIMITS = {
@@ -36,9 +40,15 @@ let totalBytes = 0, problems = 0, fixed = 0;
 
 console.log("\n  checking what she is about to download\n  " + "─".repeat(46) + "\n");
 
+let foldersSeen = 0;
+
 for (const [folder, rule] of Object.entries(LIMITS)) {
   const dir = join(ROOT, folder);
-  if (!existsSync(dir)) continue;
+  if (!existsSync(dir)) {
+    console.log(`  ${folder}/  — folder not found at ${dir}\n`);
+    continue;
+  }
+  foldersSeen++;
 
   const files = readdirSync(dir).filter((f) => rule.exts.includes(extname(f).toLowerCase()));
   if (!files.length) {
@@ -92,10 +102,19 @@ for (const [folder, rule] of Object.entries(LIMITS)) {
            "-acodec", "aac", "-b:a", "96k", "-movflags", "+faststart", tmp]
         : ["-y", "-i", path, "-b:a", "128k", tmp];
 
+    // A .jpeg being converted to .jpg must not silently clobber a different
+    // photo that already owns that name.
+    let outName = basename(f, ext) + (folder === "photos" ? ".jpg" : folder === "videos" ? ".mp4" : ".mp3");
+    if (outName !== f && existsSync(join(dir, outName))) {
+      let n = 2;
+      while (existsSync(join(dir, `${basename(f, ext)}-${n}${extname(outName)}`))) n++;
+      outName = `${basename(f, ext)}-${n}${extname(outName)}`;
+      console.log(`         ⚠  ${basename(f, ext)}${extname(outName)} already exists — writing ${outName} instead`);
+    }
+
     try {
       execFileSync("ffmpeg", args, { stdio: "ignore" });
       renameSync(path, join(backupDir, f));                 // your original is kept, never deleted
-      const outName = basename(f, ext) + (folder === "photos" ? ".jpg" : folder === "videos" ? ".mp4" : ".mp3");
       renameSync(tmp, join(dir, outName));
       const now = statSync(join(dir, outName)).size;
       console.log(`         → ${outName}  ${kb(size)} → ${kb(now)}   (original kept in ${folder}/originals/)`);
@@ -109,6 +128,13 @@ for (const [folder, rule] of Object.entries(LIMITS)) {
 }
 
 console.log("  " + "─".repeat(46));
+
+if (!foldersSeen) {
+  console.log("  ✗  found no photos/ videos/ or music/ folder next to this script.");
+  console.log("     run it from the project root:  node tools/optimize-media.mjs\n");
+  process.exit(1);
+}
+
 console.log(`  total she downloads: ${kb(totalBytes)}`);
 if (totalBytes > 25 * 1024 * 1024) {
   console.log("  ⚠  that is a lot for mobile data. aim for under 25 MB.");
