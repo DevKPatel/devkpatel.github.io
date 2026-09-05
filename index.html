@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#241418">
+
+<!-- Kept out of Google, Bing and every other search engine. -->
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+
+<title>for you</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Nothing+You+Could+Do&family=Special+Elite&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>💗</text></svg>">
+</head>
+<body class="is-sealed">
+
+<!-- ══ Ink and crumple filters (invisible).
+     Paper grain is NOT here — it is a rasterised tile in styles.css,
+     because a live filter on a full-screen layer is far too expensive. ══ -->
+<svg class="defs" aria-hidden="true" focusable="false">
+  <filter id="crumple">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="7"/>
+    <feDisplacementMap in="SourceGraphic" scale="5"/>
+  </filter>
+  <filter id="inkbleed">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+    <feDisplacementMap in="SourceGraphic" scale="1.6"/>
+  </filter>
+</svg>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     1 · THE PARCEL
+     ══════════════════════════════════════════════════════════ -->
+<section class="parcel" id="parcel">
+  <div class="parcel__table" aria-hidden="true"></div>
+
+  <div class="parcel__box" id="parcelBox">
+    <div class="parcel__lid" id="parcelLid">
+      <div class="parcel__paper">
+        <p class="parcel__to" id="parcelTo">Dinks</p>
+        <p class="parcel__warn" id="parcelWarn">DO NOT OPEN THIS IN PUBLIC</p>
+      </div>
+      <div class="parcel__twine parcel__twine--v" aria-hidden="true"></div>
+      <div class="parcel__twine parcel__twine--h" aria-hidden="true"></div>
+      <div class="parcel__seal" id="parcelSeal"><span id="parcelSealChar">D</span></div>
+    </div>
+
+    <div class="parcel__glow" aria-hidden="true"></div>
+  </div>
+
+  <button class="parcel__pull" id="parcelPull" type="button">
+    <span class="parcel__string" aria-hidden="true"></span>
+    <span class="parcel__hint" id="parcelHint">pull the string</span>
+  </button>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     2 · THE ALBUM
+     ══════════════════════════════════════════════════════════ -->
+<main class="album" id="album" aria-hidden="true">
+
+  <!-- the note resting on top -->
+  <section class="note" id="note">
+    <div class="note__paper">
+      <div class="note__tape note__tape--l" aria-hidden="true"></div>
+      <div class="note__tape note__tape--r" aria-hidden="true"></div>
+      <div id="noteLines"></div>
+      <p class="note__sign" id="noteSign"></p>
+    </div>
+    <div class="scrollcue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- every chapter is built here from content.js -->
+  <div id="chapters"></div>
+
+  <!-- the wallet list -->
+  <section class="spread wallet" id="wallet">
+    <div class="page page--tall">
+      <h2 class="wallet__title hand" id="walletTitle"></h2>
+      <ol class="wallet__list" id="walletList"></ol>
+      <div class="page__fold" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- the letter -->
+  <section class="spread letter" id="letter">
+    <article class="page page--letter">
+      <div class="tape tape--tl" aria-hidden="true"></div>
+      <div class="tape tape--br" aria-hidden="true"></div>
+      <p class="letter__to hand" id="letterTo"></p>
+      <div class="letter__body" id="letterBody"></div>
+      <p class="letter__sign hand" id="letterSign"></p>
+      <p class="letter__from" id="letterFrom"></p>
+    </article>
+  </section>
+
+  <!-- everything goes quiet -->
+  <section class="turn" id="turn">
+    <p class="turn__kicker" id="turnKicker"></p>
+    <h2 class="turn__title hand" id="turnTitle"></h2>
+  </section>
+
+  <!-- the mirror -->
+  <section class="mirror" id="mirror">
+    <div class="mirror__frame" id="mirrorFrame">
+      <video class="mirror__video" id="mirrorVideo" playsinline muted autoplay></video>
+      <canvas class="mirror__canvas" id="mirrorCanvas" hidden></canvas>
+
+      <div class="mirror__idle" id="mirrorIdle">
+        <span class="mirror__icon" aria-hidden="true">◍</span>
+        <p class="mirror__invite" id="mirrorInvite"></p>
+        <button class="btn btn--ghost" id="mirrorBtn" type="button"></button>
+        <p class="mirror__privacy" id="mirrorPrivacy"></p>
+      </div>
+
+      <div class="mirror__flash" id="mirrorFlash" aria-hidden="true"></div>
+    </div>
+    <p class="mirror__caption hand" id="mirrorCaption"></p>
+  </section>
+
+  <!-- the ask -->
+  <section class="ask" id="ask">
+    <div class="ask__lines" id="askLines"></div>
+    <p class="ask__sub" id="askSub"></p>
+    <p class="ask__question hand" id="askQuestion"></p>
+    <div class="ask__buttons" id="askButtons">
+      <button class="btn btn--yes" id="btnYes" type="button">yes</button>
+      <button class="btn btn--no" id="btnNo" type="button">no</button>
+    </div>
+  </section>
+
+  <!-- the payoff -->
+  <section class="yes" id="yesScene" hidden>
+    <div class="yes__stamp" id="yesStamp"></div>
+    <p class="yes__line hand" id="yesLine"></p>
+    <p class="yes__sub" id="yesSub"></p>
+
+    <figure class="polaroid polaroid--hero" id="yesPolaroid" hidden>
+      <div class="polaroid__frame"><img id="yesPhoto" alt="you, the second you said yes"></div>
+      <figcaption class="polaroid__cap hand" id="yesPhotoCap"></figcaption>
+    </figure>
+
+    <div class="yes__actions">
+      <a class="btn btn--ghost" id="btnSave" download="us.jpg" hidden></a>
+      <a class="btn btn--yes" id="btnTell" target="_blank" rel="noopener"></a>
+    </div>
+  </section>
+
+  <!-- closing — hidden until she answers, so the page ends on the question -->
+  <footer class="closing" id="closing" hidden>
+    <p class="closing__line hand" id="closingLine"></p>
+    <p class="closing__from" id="closingFrom"></p>
+    <p class="closing__date" id="closingDate"></p>
+  </footer>
+</main>
+
+
+<!-- ══ floating bits ══ -->
+<button class="music" id="music" type="button" aria-label="Toggle music" hidden>
+  <span class="music__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+</button>
+<audio id="audio" loop preload="none"></audio>
+
+<button class="flower" id="flower" type="button" aria-label="A secret" hidden>❀</button>
+
+<!-- secret note -->
+<div class="sheet" id="secret" aria-hidden="true">
+  <div class="sheet__card">
+    <button class="sheet__close" id="secretClose" type="button" aria-label="Close">×</button>
+    <p class="sheet__body hand" id="secretBody"></p>
+  </div>
+</div>
+
+<!-- photo lightbox -->
+<div class="light" id="light" aria-hidden="true">
+  <button class="light__close" id="lightClose" type="button" aria-label="Close">×</button>
+  <div class="light__stage" id="lightStage"></div>
+  <p class="light__cap hand" id="lightCap"></p>
+</div>
+
+<!-- she has been here before -->
+<div class="again" id="again" hidden>
+  <div class="again__card">
+    <div class="again__stamp">✓</div>
+    <h2 class="again__title hand" id="againTitle"></h2>
+    <p class="again__sub" id="againSub"></p>
+    <button class="btn btn--ghost" id="againBtn" type="button"></button>
+  </div>
+</div>
+
+<div class="confetti" id="confetti" aria-hidden="true"></div>
+
+<script src="content.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

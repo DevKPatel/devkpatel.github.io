@@ -1,0 +1,19 @@
+# This page is private. Please do not index it.
+User-agent: *
+Disallow: /
+
+# Explicitly, for the big ones.
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
