@@ -90,7 +90,7 @@ window.CONTENT = {
       title: "the day you replied",
       layout: "stack",
       body:
-        "One month ago you answered a message, and I genuinely do not think " +
+        "One month ago you started a message, and I genuinely do not think " +
         "either of us understood what we had just started.\n\n" +
         "I have counted every day since. All thirty-one of them.",
       deco: "clip",
@@ -98,7 +98,7 @@ window.CONTENT = {
         { photo: "photo1.jpeg", cap: "somewhere near the beginning" },
         { photo: "photo3.jpeg", cap: "us, early on" },
         { photo: "photo2.jpeg", cap: "you, being you" },
-        { photo: "",           cap: "add one more here" },
+        { photo: "",           cap: "" },
       ],
     },
 
@@ -110,12 +110,12 @@ window.CONTENT = {
         "You do. You talk until there is no air left in the room, and you " +
         "type like this —",
       // Her actual texting voice. She will recognise this instantly.
-      quote: "Yeahhhh ikkkkk, buttt idkkkk",
+      quote: "Hehehehehe, haaawwwwww",
       bodyAfter:
         "Thirty-one days, and not once have I wanted you to stop.",
       media: [
-        { photo: "", cap: "mid-sentence, probably" },
-        { photo: "", cap: "still talking" },
+        { photo: "", cap: "My Flirting skills" },
+        { photo: "", cap: "always Angry" },
       ],
     },
 
@@ -228,9 +228,6 @@ window.CONTENT = {
       "too smart for that, and you have had quite enough of it already. " +
       "Whatever space you need is yours. I am only hoping you keep choosing " +
       "to spend some of it on me.\n\n" +
-      "Krishna was born the night before I sent you that message, and he fell " +
-      "in love with Radha. I meant it when I told you that in my eyes, you " +
-      "are my Radha ji.\n\n" +
       "I really, really like you. Deliberately.",
     sign: "Love you lots,",
     from: "Dev",
@@ -246,7 +243,7 @@ window.CONTENT = {
     caption: "There she is.\nThe prettiest girl I have ever seen.\nI am not being sweet. I am being accurate.",
     // Shown instead if she declines the camera, or it is not available.
     fallback: "That is completely alright.\nI already know what you look like.\nI think about it constantly.",
-    privacy: "Nothing is uploaded, saved or sent. This stays on your phone.",
+    privacy: "",
 
     // The shutter, once the mirror is live.
     shutter:  "take the picture",
